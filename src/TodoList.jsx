@@ -1,17 +1,15 @@
 import TodoItem from "./TodoItem";
 
+function TodoList({ task, setTask, setFinishedTask }) {
 
 
-function TodoList({ myTask, deleteTask, doneList }) {
-
-    const eachList = myTask.map(each => (
-        <TodoItem item={each} deleteTask={deleteTask} doneList={doneList} />
+    const eachTask = task.map((each) => (
+        <TodoItem item={each} setTask={setTask} setFinishedTask={setFinishedTask} task={task} />
     ))
 
     return (
         <>
-            {eachList}
-
+            {eachTask}
         </>
     )
 }
