@@ -1,26 +1,37 @@
-function TodoItem({ item, deleteTask, doneList }) {
+import { useState } from "react";
+
+function TodoItem({ item, setTask, setFinishedTask, task }) {
+
+    const [newChange, setNewChange] = useState({
+        task: '',
+        complete: false,
+    })
+
 
     const removeThis = () => {
 
-        deleteTask((prevTask) => {
-            const prevList = [...prevTask];
-            const newList = prevList.filter((value) => value !== item);
-            const removedList = prevList.filter((value) => value === item);
-            doneList.push(removedList);
-            return newList;
+        setNewChange(() => {
+            return { task: item.task, complete: item.complete }
         })
 
+        setFinishedTask((prevFinished) => {
+            return [...prevFinished, {
+                task: item.task,
+                complete: true,
+            }];
+        })
 
 
 
     }
 
-    return (
-        <>
-            <div className="container border p-3 border-1">
-                <h4 id="task"><span id="text">{item}</span> <span className="btn-success btn float-end" onClick={removeThis} id="button">done? </span></h4>
-            </div>
 
+    return (
+
+        <>
+            <div className={`container m-1 border p-3 rounded-pill ${item.complete ? "text-bg-secondary" : "text-bg-primary"}`}>
+                <span style={{ cursor: 'pointer' }} onClick={removeThis}>{item.complete ? '✅' : '❎'}</span> {item.task}
+            </div>
         </>
     )
 }

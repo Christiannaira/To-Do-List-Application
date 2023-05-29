@@ -1,34 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function TodoForm({ addTask, task }) {
+function TodoForm({ task, setTask }) {
 
-    const [initial, setInitial] = useState('');
+    const [newTask, setNewTask] = useState({
+        task: '',
+        complete: false,
+    })
 
-    const insertString = (text) => {
-        setInitial(text.target.value)
+    const handleNewTask = (task) => {
+        setNewTask((prevData) => {
+            return { ...prevData, task: task.target.value }
+        })
     }
 
-    const newTask = () => {
+    const submitNewData = () => {
 
-        if (document.getElementById("addtask").value === '') {
-            alert("please insert a task before you add!");
-        } else if (task.includes(document.getElementById("addtask").value)) {
-            alert("That's already in the List")
-        } else {
-            addTask(prevTask => {
-                return [...prevTask, initial]
-            })
+        if (document.querySelector("input").value === '') {
+            alert("empty task");
         }
-        document.getElementById("addtask").value = '';
+        else {
+            setTask((prevTaskList) => {
+                return [...prevTaskList, newTask];
+            });
+        }
+
+        document.querySelector("input").value = '';
     }
+
 
     return (
         <>
-            <div className="row">
-                <input type="text" placeholder="task" className="p-3 mt-3" onChange={insertString} id="addtask" />
-            </div>
-            <div className="row">
-                <button className="btn btn-dark mt-3" onClick={newTask}>Add Task</button>
+            <div className="container m-1 border p-3 rounded-pill" style={{ position: 'relative' }}>
+                <input type="text" className="form-control rounded-pill" placeholder="enter new task" onChange={handleNewTask} />
+                <button className="btn btn-dark rounded-pill w-50" style={{ position: 'absolute', top: '50%', right: '15px', transform: 'translateY(-50%)' }} onClick={submitNewData} >Submit</button>
             </div>
         </>
     )
