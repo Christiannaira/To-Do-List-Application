@@ -33,8 +33,8 @@ function TodoItem({ item, setTask, setFinishedTask, task }) {
     return (
 
         <>
-            <div className={`container m-1 border p-3 rounded-pill ${item.complete ? "text-bg-secondary" : "text-bg-primary"}`}>
-                <span style={{ cursor: 'pointer' }} onClick={removeThis}>{item.complete ? '✅' : '❎'}</span> {item.task}
+            <div className={`container m-1 border p-3 rounded-pill text-bg-primary`}>
+                <span style={{ cursor: 'pointer' }} onClick={removeThis}>{'❎'}</span> {item.task}
             </div>
         </>
     )

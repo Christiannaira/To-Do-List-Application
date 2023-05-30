@@ -31,8 +31,8 @@ function TodoForm({ task, setTask }) {
     return (
         <>
             <div className="container m-1 border p-3 rounded-pill" style={{ position: 'relative' }}>
-                <input type="text" className="form-control rounded-pill" placeholder="enter new task" onChange={handleNewTask} />
-                <button className="btn btn-dark rounded-pill w-50" style={{ position: 'absolute', top: '50%', right: '15px', transform: 'translateY(-50%)' }} onClick={submitNewData} >Submit</button>
+                <input type="text" className="form-control rounded-pill" placeholder="enter new task" onChange={handleNewTask} id="taskForm" />
+                <button className="btn btn-dark rounded-pill w-50" style={{ position: 'absolute', top: '50%', right: '15px', transform: 'translateY(-50%)' }} onClick={submitNewData} id="taskBtn" >Submit</button>
             </div>
         </>
     )

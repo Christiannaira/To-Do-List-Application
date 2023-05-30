@@ -1,0 +1,41 @@
+body {
+    background-color: dodgerblue;
+}
+
+#taskForm {
+    border: 1px solid #222;
+    padding: 5px 1.3rem;
+    outline: none;
+    box-shadow: none;
+}
+
+#taskForm::placeholder {
+    color: #555;
+}
+
+#taskForm:focus {
+    border: 2px solid dodgerblue
+}
+
+#taskBtn {
+    border: none;
+    outline: none;
+}
+
+#taskBtn:hover {
+    background-color: dodgerblue;
+}
+
+.container {
+    border-radius: 30px;
+    background-color: #fff;
+}
+
+#clearBTN {
+    width: 120px;
+    border-radius: 30px;
+}
+
+#clearBTN:hover {
+    background-color: red;
+}
