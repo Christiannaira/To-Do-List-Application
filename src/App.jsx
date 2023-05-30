@@ -6,18 +6,7 @@ import Completed from "./Completed";
 function App() {
 
   const [taskList, setTaskList] = useState([
-    {
-      task: 'Play Basketball',
-      complete: false,
-    },
-    {
-      task: 'Swimming',
-      complete: false,
-    },
-    {
-      task: 'Playing Guitar',
-      complete: false,
-    }
+
 
   ])
 

@@ -21,7 +21,11 @@ function TodoItem({ item, setTask, setFinishedTask, task }) {
             }];
         })
 
-
+        setTask((prevTask) => {
+            const prevList = [...prevTask];
+            const newList = prevList.filter((value) => value !== item);
+            return newList
+        })
 
     }
 
